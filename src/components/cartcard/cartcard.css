@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+.cart-card{
+    width: 100%;
+    height: 100%;
+    margin: 5%;
+    
+    font-family: 'Roboto Condensed', sans-serif;
+   
+    border-radius: 1rem;
+    background-color: #acf1d1;
+    border: #83a77a 1px solid;
+}
+.cart-head{
+    font-weight: 1000;
+    padding-top: 5%;
+}
+@media (max-width: 950px) {
+    .subtotal{
+        transform: scale(0.8);
+    }
+    .cart-items{
+        transform: scale(0.8);
+    }
+    .receipt{
+        transform: scale(0.8);
+    }
+    .cart-total{
+        transform: scale(0.8);
+    }
+    .cart-card{
+        transform: scale(0.8);
+    }
+    
+}
+@media (max-width: 590px) {
+    .subtotal{
+        transform: scale(0.6);
+    }
+    .cart-items{
+        transform: scale(0.6);
+    }
+    .receipt{
+        transform: scale(0.6);
+    }
+    .cart-total{
+        transform: scale(0.6);
+    }
+    
+}
+    
+    
+.cart-total{
+    width: 90%;
+    margin-left: 5%;
+    padding: 5%;
+    border-top: #244434 1px solid;
+    border-bottom: #244434 1px solid;
+}
+.cart-totalbill{
+    padding-top: 5%;
+    border-top: #244434 1px solid;
+}
+
+.trash{
+    background-color: none;
+}

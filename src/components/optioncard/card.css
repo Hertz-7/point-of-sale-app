@@ -1,0 +1,52 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Josefin+Sans&family=Roboto+Condensed&family=Signika+Negative&display=swap');@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Josefin+Sans&family=Roboto+Condensed&display=swap');
+.option-cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.card{
+    width: 17rem;
+    height: 9rem;
+    margin: 1rem;
+    font-family: 'Roboto Condensed', sans-serif;
+    border-radius: 1rem;
+    background-color:  #64C695;
+}
+@media (max-width: 950px) {
+    .card{
+        transform: scale(0.8);
+    }
+    .card:hover{
+        transform: scale(0.75);
+        transition: all 0.3s ease-in-out;
+    }
+}
+@media (max-width: 590px) {
+    .card{
+        transform: scale(0.6);
+    }
+    .card:hover{
+        transform: scale(0.55);
+        transition: all 0.3s ease-in-out;
+    }
+}
+    
+@media (min-width: 950px) {
+   
+    .card:hover{
+        cursor: pointer;
+        box-shadow: 0 0 10px  #125e28;
+        transform: scale(1.04);
+        transition: all 0.3s ease-in-out;
+    }
+}
+
+.price{
+    font-weight: 700;
+}
+.card-title{
+    font-size: 1.6rem;
+    font-weight: 1000;
+    font-family: 'Signika Negative', sans-serif;
+}

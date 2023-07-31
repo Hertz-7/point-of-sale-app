@@ -13,23 +13,24 @@ function Login(props) {
           navigate('/home');
     
       },[]);
-    const handleLogin = async () => {
+      const handleLogin = async () => {
         try {
-            // make a post request to the login route with the username and password as data
-            const response = await axios.post('http://localhost:9002/loginapi', { username, password });
-        
-            // get the token from the response
-            const token = response.data;
-            localStorage.setItem('token', token);
-            navigate('/home');
-        
-          } catch (error) {
-            //if response status is 401 turn loginerr to true
-            if (error.response.status === 401){
-                setLoginerr(true);
-            }
+          // make a post request to the login route with the username and password as data
+          const response = await axios.post('http://localhost:9002/loginapi', { username, password });
+      
+          // get the token from the response
+          const token = response.data;
+          localStorage.setItem('token', token);
+          navigate('/home');
+      
+        } catch (error) {
+          //if response status is 401 turn loginerr to true
+          if (error.response.status === 401){
+            setLoginerr(true);
           }
-    }
+        }
+      };
+      
     const handleUsernameChange = (e) => {
         setUsername(e.target.value);
     }

@@ -51,13 +51,13 @@ function OptionCard(props) {
                         <h6>SubTotal</h6>
                         <h6>Rs. {SubTotal=items.cart.reduce((total, item) => total + item.price*item.quantity, 0)}</h6>
                     </div> 
-                    <div className=" d-flex justify-content-around ">
+                    {/* <div className=" d-flex justify-content-around ">
                         <h6>Sales Tax</h6>
                         <h6>Rs. {SalesTax=0.15*items.cart.reduce((total, item) => total + item.price*item.quantity, 0)}</h6>
-                    </div> 
+                    </div>  */}
                     <div className="cart-totalbill d-flex justify-content-around ">
                         <h5>Total</h5>
-                        <h5>Rs. { SubTotal+SalesTax}</h5>
+                        <h5>Rs. { SubTotal}</h5>
                     </div>
                 </div>  
                 <button type="button" className="receipt btn m-3" onClick={()=>(navigate('/receipt'))} >Proceed to Reciept</button>

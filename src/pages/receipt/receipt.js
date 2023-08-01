@@ -1,8 +1,8 @@
 import React from 'react';
 import { Document, Page, Text, View, StyleSheet, Image } from '@react-pdf/renderer';
 import logo from './Logo-Stamp-thaali-1.png'
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useEffect } from 'react';
+// import { useNavigate } from 'react-router-dom';
 const styles = StyleSheet.create({
   page: {
     flexDirection: 'column',
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   },
   header: {
     marginBottom: 10,
-    borderBottomWidth: 1,
+    borderBottomWidth: 2,
     borderBottomStyle: 'solid',
     padding: '5px 0',
     marginTop: 10,
@@ -22,7 +22,8 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     width: 250, // adjust the width as needed
     height: 250, // adjust the height as needed
-    marginLeft: 180,
+    // marginLeft: 180,
+    alignSelf: 'center',
   },
   headerText: {
     fontSize: 30,
@@ -32,6 +33,7 @@ const styles = StyleSheet.create({
   },
   content: {
     marginBottom: 10,
+
   },
   contentText: {
     fontSize: 20,
@@ -41,9 +43,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
   },
-  itemName: {
-    fontSize: 20,
-  },
+  
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -53,27 +53,29 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     
-    borderTopWidth: 1,
+    borderTopWidth: 2,
     borderTopStyle: 'solid',
-    
-    paddingTop: 5,
+    borderBottomWidth: 2,
+    borderBottomStyle: 'solid',
+    padding: '5px 5px',
     marginTop: 15,
-    paddingBottom: 50,
+    
+    marginBottom: 50,
   },
   subtotalRow: {
     display: 'flex',
     flexDirection: 'row',
     
-    borderTopWidth: 1,
+    borderTopWidth: 2,
     borderTopStyle: 'solid',
-    padding: '5px 0',
+    padding: '5px 5px',
     marginTop: 15,
   },
   taxRow: {
     display: 'flex',
     flexDirection: 'row',
     
-    borderTopWidth: 1,
+    borderTopWidth: 2,
     borderTopStyle: 'solid',
     padding: '5px 0',
     marginTop: 15,
@@ -108,7 +110,7 @@ const styles = StyleSheet.create({
   itemRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    borderBottomWidth: 1,
+    borderBottomWidth: 2,
     borderBottomStyle: 'solid',
     padding: '5px 0',
   },
@@ -128,6 +130,9 @@ const styles = StyleSheet.create({
   price: {
     width: '25%',
     fontSize: 25,
+  },
+  thankyou:{
+    paddingBottom :10,
   }
 });
 
@@ -150,19 +155,20 @@ const calculateSubtotal = () => {
 };
 const calculateTotal = () => {
   const subtotal = calculateSubtotal();
-  const salesTax = calculateSubtotal()*0.15;
-  return subtotal + salesTax;
+  // const salesTax = calculateSubtotal()*0.15;
+  return subtotal ;//+ salesTax;
 };
 
   return (
-    <Document>
-      <Page style={styles.page}>
+    <Document >
+      <Page size='legal' style={styles.page}>
         <View style={styles.header}>
           <Image src={logo} style={styles.logo} />
-          <Text style={styles.headerText}>Thaali</Text>
+          <Text style={styles.headerText}>Thaalli</Text>
           <Text style={styles.headerText}>Plot No: 66, Shop 1 LG Floor</Text> 
           <Text style={styles.headerText}> Civic Center Phase 4 </Text>
           <Text style={styles.headerText}> Bahria Town Rawalpindi</Text>
+          <Text style={styles.headerText}>---------------------------------------------------</Text>
           <Text style={styles.headerText}>Receipt</Text>
           <Text style={styles.headerText}>---------------------------------------------------</Text>
           <Text style={styles.timestamp}>{currentDateTime}</Text>
@@ -181,7 +187,7 @@ const calculateTotal = () => {
               <Text style={styles.price}>Rs.{item.price}</Text>
             </View>
           ))}
-            <View style={[styles.subtotalRow]}>
+          <View style={[styles.subtotalRow]}>
             <Text style={styles.subtotalLabel}>Subtotal:</Text>
             <Text style={styles.price}>{`Rs.${calculateSubtotal()}`}</Text>
           </View>
@@ -189,7 +195,7 @@ const calculateTotal = () => {
             <Text style={styles.totalLabel}>Total:</Text>
             <Text style={styles.totalValue}>{`Rs.${calculateTotal().toFixed(2)}`}</Text>
           </View>
-          <Text style={styles.headerText}>Thank You!</Text>
+          <Text style={[styles.headerText , styles.thankyou]}>Thank You!</Text>
         </View>
       </Page>
     </Document>

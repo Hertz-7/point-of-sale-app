@@ -1,3 +1,8 @@
+# To change the options in the menu simply update the 'option' array present in src/pages/home/home.js
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
